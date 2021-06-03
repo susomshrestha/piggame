@@ -24,8 +24,12 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.wrapper .player-active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 .wrapper .player-box .score-wrap {
-  text-align: center  ;
+  text-align: center;
 }
 
 .wrapper .player-box .name {
@@ -82,10 +86,12 @@ body {
   height: 50px;
   width: 50px;
   display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(3, auto);
-  justify-items: center;
   align-items: center;
+  justify-items: center;
+  grid-template-areas:
+    "a . c"
+    "e g f"
+    "d . b";
   padding: 10px;
 }
 
@@ -96,7 +102,28 @@ body {
   background: black;
 }
 
-.wrapper .new button,.roll button,.hold button {
+.wrapper .dice .dots:nth-child(2) {
+  grid-area: b;
+}
+.wrapper .dice .dots:nth-child(3) {
+  grid-area: c;
+}
+.wrapper .dice .dots:nth-child(4) {
+  grid-area: d;
+}
+.wrapper .dice .dots:nth-child(5) {
+  grid-area: e;
+}
+.wrapper .dice .dots:nth-child(6) {
+  grid-area: f;
+}
+.wrapper .dice .dots:nth-child(odd):last-child {
+  grid-area: g;
+}
+
+.wrapper .new button,
+.roll button,
+.hold button {
   background: white;
   border-radius: 20px;
   font-size: 18px;
